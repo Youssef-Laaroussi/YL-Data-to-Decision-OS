@@ -145,7 +145,7 @@ export default function LandingPage() {
             onClick={() => navigate('/pipeline')}
             className="btn btn--secondary btn--lg btn--hero-secondary"
           >
-            <Play size={18} style={{ color: 'var(--accent-blue)' }} />
+            <Play size={18} style={{ color: 'var(--accent-primary)' }} />
             <span>Autonomous Pipeline Agent</span>
           </button>
         </div>

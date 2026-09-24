@@ -58,7 +58,7 @@ export default function Sidebar() {
         <Link
           to="/"
           className="sidebar__link"
-          style={{ marginBottom: '6px', color: 'var(--accent-blue)', background: '#eff6ff' }}
+          style={{ marginBottom: '6px', color: 'var(--accent-primary)', background: '#ecfdf5' }}
         >
           <Home size={18} />
           <span>← Back to Website</span>
@@ -96,9 +96,9 @@ export default function Sidebar() {
           className="btn btn--sm"
           style={{
             width: '100%',
-            background: seeded ? '#f0fdf4' : '#eff6ff',
-            color: seeded ? 'var(--accent-green)' : 'var(--accent-blue)',
-            borderColor: seeded ? '#bbf7d0' : '#bfdbfe',
+            background: seeded ? '#ecfdf5' : '#f0fdf4',
+            color: 'var(--accent-primary)',
+            borderColor: '#a7f3d0',
             fontWeight: 600,
           }}
         >
