@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart
@@ -99,7 +99,7 @@ export default function Dashboard() {
         </div>
         <div className="pipeline-flow">
           {pipelineSteps.map((step, i) => (
-            <React.Fragment key={step.label}>
+            <Fragment key={step.label}>
               <div className={`pipeline-step ${step.completed ? 'pipeline-step--completed' : ''}`}>
                 <span className="pipeline-step__icon">{step.icon}</span>
                 <span className="pipeline-step__label">{step.label}</span>
@@ -110,7 +110,7 @@ export default function Dashboard() {
                   →
                 </span>
               )}
-            </React.Fragment>
+            </Fragment>
           ))}
         </div>
       </div>

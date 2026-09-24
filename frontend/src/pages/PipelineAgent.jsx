@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { Bot, Play, CheckCircle, XCircle, Clock, Loader } from 'lucide-react';
 import * as api from '../services/api';
 
@@ -180,7 +180,7 @@ export default function PipelineAgent() {
             {PIPELINE_STEPS.map((step, i) => {
               const status = getStepStatus(step.key);
               return (
-                <React.Fragment key={step.key}>
+                <Fragment key={step.key}>
                   <div className={`pipeline-step pipeline-step--${status}`}>
                     <span className="pipeline-step__icon">{step.icon}</span>
                     <span className="pipeline-step__label">{step.label}</span>
@@ -190,7 +190,7 @@ export default function PipelineAgent() {
                   {i < PIPELINE_STEPS.length - 1 && (
                     <span className={`pipeline-arrow ${status === 'completed' ? 'pipeline-arrow--completed' : ''}`}>→</span>
                   )}
-                </React.Fragment>
+                </Fragment>
               );
             })}
           </div>
