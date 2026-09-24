@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Data-to-Decision OS
+# Data-to-Decision OS
 
 **Transform raw data into actionable, measurable, and traceable decisions.**
 
@@ -10,13 +10,13 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://react.dev)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-[Getting Started](#-getting-started) · [Architecture](#-architecture) · [Modules](#-modules) · [Contributing](#-contributing) · [License](#-license)
+[Getting Started](#getting-started) · [Architecture](#architecture) · [Modules](#modules) · [Contributing](#contributing) · [License](#license)
 
 </div>
 
 ---
 
-## 🎯 What is Data-to-Decision OS?
+## What is Data-to-Decision OS?
 
 Most data platforms stop at dashboards. **Data-to-Decision OS** goes further — it closes the loop from raw data to **measurable decisions** with built-in feedback tracking.
 
@@ -30,23 +30,23 @@ Raw Data → Data Engineering → Data Quality → Analytics → ML → Decision
 
 > *How do you automatically transform data into decisions that are measurable, traceable, and continuously re-evaluated?*
 
-## 📦 Modules
+## Modules
 
-| Module | Description | Status |
-|--------|-------------|--------|
-| **Data Engineering** | Ingestion, ETL/ELT pipelines | ✅ MVP |
-| **Data Quality** | Validation, anomaly detection, data contracts | ✅ MVP |
-| **Data Warehouse** | Star schema modeling in PostgreSQL | ✅ MVP |
-| **Data Analytics** | Statistical exploration & distributions | ✅ MVP |
-| **BI & Reporting** | KPI dashboards, trend analysis | ✅ MVP |
-| **Data Science** | Feature engineering, EDA | ✅ MVP |
-| **ML Engineering** | Model training & serving | ✅ MVP |
-| **MLOps** | Versioning, registry, drift monitoring | ✅ MVP |
-| **Decision Engine** | Transform predictions into recommendations | ✅ MVP |
-| **Agentic AI** | Autonomous pipeline orchestration | ✅ MVP |
-| **Feedback Loop** | Measure real-world decision impact | ✅ MVP |
+| Module | Description |
+|--------|-------------|
+| **Data Engineering** | Ingestion, ETL/ELT pipelines |
+| **Data Quality** | Validation, anomaly detection, data contracts |
+| **Data Warehouse** | Star schema modeling in PostgreSQL |
+| **Data Analytics** | Statistical exploration & distributions |
+| **BI & Reporting** | KPI dashboards, trend analysis |
+| **Data Science** | Feature engineering, EDA |
+| **ML Engineering** | Model training & serving |
+| **MLOps** | Versioning, registry, drift monitoring |
+| **Decision Engine** | Transform predictions into recommendations |
+| **Agentic AI** | Autonomous pipeline orchestration |
+| **Feedback Loop** | Measure real-world decision impact |
 
-## 🏗 Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -77,7 +77,7 @@ Raw Data → Data Engineering → Data Quality → Analytics → ML → Decision
                 └───────────────┘
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -115,37 +115,37 @@ docker-compose up --build
 # API Docs at http://localhost:8000/docs
 ```
 
-## 🧪 Example: Sales Pipeline
+## Example: Sales Pipeline
 
 ```
-📊 Sales CSV Data
+Sales CSV Data
        ↓
-🔧 Data Engineering (clean, transform, load)
+Data Engineering (clean, transform, load)
        ↓
-✅ Data Quality (validate schema, detect anomalies)
+Data Quality (validate schema, detect anomalies)
        ↓
-📈 Analytics (trends, seasonality, correlations)
+Analytics (trends, seasonality, correlations)
        ↓
-🤖 ML Model (demand forecasting)
+ML Model (demand forecasting)
        ↓
-⚙️  MLOps (version, monitor, detect drift)
+MLOps (version, monitor, detect drift)
        ↓
-💡 Decision Engine → "Increase stock by 15%"
+Decision Engine → "Increase stock by 15%"
        ↓
-📏 Feedback Loop → Did revenue actually increase?
+Feedback Loop → Did revenue actually increase?
        ↺ Re-evaluate and adjust
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
-  <b>Built with ❤️ for the data community</b>
+  <b>Built for the data community</b>
 </div>
