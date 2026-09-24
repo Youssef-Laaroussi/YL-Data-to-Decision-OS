@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+<div align="center">
 
 # 🚀 Data-to-Decision OS
 
@@ -149,4 +149,3 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 <div align="center">
   <b>Built with ❤️ for the data community</b>
 </div>
-]]>
