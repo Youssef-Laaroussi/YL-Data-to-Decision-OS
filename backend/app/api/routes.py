@@ -88,6 +88,25 @@ async def upload_data(
     }
 
 
+@router.post("/data/seed-demo")
+async def seed_demo_dataset(db: Session = Depends(get_db)):
+    """Seed sample sales dataset for instant platform demonstration."""
+    import os
+    from generate_sample_data import generate_sales_data
+    file_path = generate_sales_data(n_rows=1000, output_dir="./uploads")
+    service = DataEngineeringService(db)
+    with open(file_path, "rb") as f:
+        content = f.read()
+    dataset = await service.ingest_csv(content, "sales_demo_data.csv")
+    return {
+        "status": "success",
+        "id": dataset.id,
+        "name": dataset.name,
+        "rows": dataset.row_count,
+        "columns": dataset.column_count,
+    }
+
+
 @router.get("/data/datasets")
 def list_datasets(db: Session = Depends(get_db)):
     """List all ingested datasets."""

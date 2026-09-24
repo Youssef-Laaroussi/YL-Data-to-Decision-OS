@@ -37,6 +37,8 @@ export const uploadDataset = (file) => {
   return request('/data/upload', { method: 'POST', body: form });
 };
 
+export const seedDemoData = () => request('/data/seed-demo', { method: 'POST' });
+
 export const getDatasets = () => request('/data/datasets');
 export const getDataset = (id) => request(`/data/datasets/${id}`);
 export const previewDataset = (id, rows = 20) => request(`/data/datasets/${id}/preview?rows=${rows}`);
