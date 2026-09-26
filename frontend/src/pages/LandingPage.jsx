@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   Database, ShieldCheck, BarChart3, Brain, Target, RotateCcw, Bot,
   ArrowRight, CheckCircle2, Sparkles, Github, Zap,
-  Play, ChevronRight, TrendingUp, Layers, Shield, Code2,
-  ArrowUpRight, Activity, PieChart, LineChart
+  Play, ChevronRight, Layers, Code2,
+  ArrowUpRight, Activity, UserPlus, LogIn
 } from 'lucide-react';
 
 /* ─── Data ───────────────────────────────────────────────── */
@@ -71,7 +71,6 @@ const TECH_STACK = [
 ];
 
 /* ─── Animated Counter ───────────────────────────────────── */
-
 function AnimatedValue({ value }) {
   const [display, setDisplay] = useState(value);
   const ref = useRef(null);
@@ -103,63 +102,108 @@ function AnimatedValue({ value }) {
   return <span ref={ref}>{display}</span>;
 }
 
-/* ─── Inline SVG Illustrations ───────────────────────────── */
+/* ─── Realistic SVG Illustrations ────────────────────────── */
 
 function HeroIllustration() {
   return (
     <div className="lp-hero-illustration">
-      {/* Bar chart */}
-      <svg viewBox="0 0 320 220" fill="none" className="lp-hero-svg">
-        {/* Background card */}
-        <rect x="10" y="10" width="300" height="200" rx="16" fill="#0d7377" opacity="0.07" />
-        {/* Grid lines */}
-        <line x1="50" y1="40" x2="50" y2="180" stroke="#0d7377" strokeOpacity="0.1" />
-        <line x1="50" y1="180" x2="280" y2="180" stroke="#0d7377" strokeOpacity="0.1" />
-        <line x1="50" y1="140" x2="280" y2="140" stroke="#0d7377" strokeOpacity="0.05" strokeDasharray="4" />
-        <line x1="50" y1="100" x2="280" y2="100" stroke="#0d7377" strokeOpacity="0.05" strokeDasharray="4" />
-        <line x1="50" y1="60" x2="280" y2="60" stroke="#0d7377" strokeOpacity="0.05" strokeDasharray="4" />
+      <svg viewBox="0 0 400 300" fill="none" className="lp-hero-svg" xmlns="http://www.w3.org/2000/svg">
+        {/* Dashboard mockup */}
+        <rect x="20" y="15" width="360" height="270" rx="16" fill="#fff" stroke="#0d7377" strokeOpacity="0.12" strokeWidth="1.5"/>
+        
+        {/* Top bar */}
+        <rect x="20" y="15" width="360" height="40" rx="16" fill="#0d7377" fillOpacity="0.04"/>
+        <rect x="20" y="53" width="360" height="2" fill="#0d7377" fillOpacity="0.06"/>
+        <circle cx="44" cy="35" r="5" fill="#ef4444" opacity="0.7"/>
+        <circle cx="60" cy="35" r="5" fill="#f59e0b" opacity="0.7"/>
+        <circle cx="76" cy="35" r="5" fill="#10b981" opacity="0.7"/>
+        <rect x="140" y="29" width="120" height="12" rx="6" fill="#0d7377" fillOpacity="0.06"/>
+
+        {/* Sidebar mini */}
+        <rect x="20" y="55" width="80" height="230" fill="#0d7377" fillOpacity="0.03"/>
+        <rect x="20" y="55" width="80" height="230" rx="0" fill="none" stroke="#0d7377" strokeOpacity="0.04"/>
+        <rect x="32" y="70" width="56" height="8" rx="4" fill="#0d7377" fillOpacity="0.15"/>
+        <rect x="32" y="88" width="48" height="6" rx="3" fill="#0d7377" fillOpacity="0.08"/>
+        <rect x="32" y="102" width="52" height="6" rx="3" fill="#0d7377" fillOpacity="0.08"/>
+        <rect x="32" y="116" width="40" height="6" rx="3" fill="#0d7377" fillOpacity="0.08"/>
+        <rect x="32" y="130" width="56" height="6" rx="3" fill="#14b8a6" fillOpacity="0.2"/>
+        <rect x="32" y="144" width="44" height="6" rx="3" fill="#0d7377" fillOpacity="0.08"/>
+
+        {/* KPI Cards */}
+        <rect x="115" y="68" width="78" height="52" rx="8" fill="#f0fdfa" stroke="#0d7377" strokeOpacity="0.1"/>
+        <rect x="125" y="78" width="28" height="4" rx="2" fill="#0d7377" fillOpacity="0.15"/>
+        <text x="125" y="102" fontSize="14" fontWeight="800" fill="#0d7377" fontFamily="Inter">2,847</text>
+
+        <rect x="203" y="68" width="78" height="52" rx="8" fill="#f0fdfa" stroke="#0d7377" strokeOpacity="0.1"/>
+        <rect x="213" y="78" width="32" height="4" rx="2" fill="#14b8a6" fillOpacity="0.2"/>
+        <text x="213" y="102" fontSize="14" fontWeight="800" fill="#14b8a6" fontFamily="Inter">94.2%</text>
+
+        <rect x="291" y="68" width="78" height="52" rx="8" fill="#f0fdfa" stroke="#0d7377" strokeOpacity="0.1"/>
+        <rect x="301" y="78" width="24" height="4" rx="2" fill="#0d7377" fillOpacity="0.15"/>
+        <text x="301" y="102" fontSize="14" fontWeight="800" fill="#0d7377" fontFamily="Inter">12</text>
+
+        {/* Bar Chart */}
+        <rect x="115" y="132" width="125" height="95" rx="8" fill="#fff" stroke="#0d7377" strokeOpacity="0.08"/>
+        <rect x="125" y="140" width="40" height="4" rx="2" fill="#0d7377" fillOpacity="0.12"/>
         {/* Bars */}
-        <rect x="70" y="120" width="24" height="60" rx="4" fill="#0d7377" opacity="0.6">
-          <animate attributeName="height" from="0" to="60" dur="0.8s" fill="freeze" />
-          <animate attributeName="y" from="180" to="120" dur="0.8s" fill="freeze" />
+        <rect x="130" y="195" width="12" height="22" rx="3" fill="#5eead4">
+          <animate attributeName="height" from="0" to="22" dur="0.6s" fill="freeze"/>
+          <animate attributeName="y" from="217" to="195" dur="0.6s" fill="freeze"/>
         </rect>
-        <rect x="110" y="80" width="24" height="100" rx="4" fill="#0d7377" opacity="0.8">
-          <animate attributeName="height" from="0" to="100" dur="0.8s" begin="0.1s" fill="freeze" />
-          <animate attributeName="y" from="180" to="80" dur="0.8s" begin="0.1s" fill="freeze" />
+        <rect x="148" y="183" width="12" height="34" rx="3" fill="#14b8a6">
+          <animate attributeName="height" from="0" to="34" dur="0.6s" begin="0.1s" fill="freeze"/>
+          <animate attributeName="y" from="217" to="183" dur="0.6s" begin="0.1s" fill="freeze"/>
         </rect>
-        <rect x="150" y="60" width="24" height="120" rx="4" fill="#0d7377">
-          <animate attributeName="height" from="0" to="120" dur="0.8s" begin="0.2s" fill="freeze" />
-          <animate attributeName="y" from="180" to="60" dur="0.8s" begin="0.2s" fill="freeze" />
+        <rect x="166" y="170" width="12" height="47" rx="3" fill="#0d7377">
+          <animate attributeName="height" from="0" to="47" dur="0.6s" begin="0.2s" fill="freeze"/>
+          <animate attributeName="y" from="217" to="170" dur="0.6s" begin="0.2s" fill="freeze"/>
         </rect>
-        <rect x="190" y="100" width="24" height="80" rx="4" fill="#14b8a6" opacity="0.7">
-          <animate attributeName="height" from="0" to="80" dur="0.8s" begin="0.3s" fill="freeze" />
-          <animate attributeName="y" from="180" to="100" dur="0.8s" begin="0.3s" fill="freeze" />
+        <rect x="184" y="178" width="12" height="39" rx="3" fill="#14b8a6">
+          <animate attributeName="height" from="0" to="39" dur="0.6s" begin="0.3s" fill="freeze"/>
+          <animate attributeName="y" from="217" to="178" dur="0.6s" begin="0.3s" fill="freeze"/>
         </rect>
-        <rect x="230" y="50" width="24" height="130" rx="4" fill="#0d7377" opacity="0.9">
-          <animate attributeName="height" from="0" to="130" dur="0.8s" begin="0.4s" fill="freeze" />
-          <animate attributeName="y" from="180" to="50" dur="0.8s" begin="0.4s" fill="freeze" />
+        <rect x="202" y="160" width="12" height="57" rx="3" fill="#0d7377">
+          <animate attributeName="height" from="0" to="57" dur="0.6s" begin="0.4s" fill="freeze"/>
+          <animate attributeName="y" from="217" to="160" dur="0.6s" begin="0.4s" fill="freeze"/>
         </rect>
-        {/* Trend line */}
+
+        {/* Pie Chart */}
+        <rect x="250" y="132" width="119" height="95" rx="8" fill="#fff" stroke="#0d7377" strokeOpacity="0.08"/>
+        <rect x="260" y="140" width="40" height="4" rx="2" fill="#0d7377" fillOpacity="0.12"/>
+        <circle cx="310" cy="192" r="26" fill="#e0f7f5"/>
+        <path d="M310 166 A26 26 0 0 1 336 192 L310 192 Z" fill="#0d7377"/>
+        <path d="M336 192 A26 26 0 0 1 310 218 L310 192 Z" fill="#14b8a6"/>
+        <path d="M310 218 A26 26 0 0 1 284 192 L310 192 Z" fill="#5eead4"/>
+        <path d="M284 192 A26 26 0 0 1 310 166 L310 192 Z" fill="#99f6e4"/>
+        <circle cx="310" cy="192" r="10" fill="#fff"/>
+
+        {/* Line chart at bottom */}
+        <rect x="115" y="238" width="254" height="40" rx="8" fill="#fff" stroke="#0d7377" strokeOpacity="0.08"/>
         <polyline
-          points="82,115 122,75 162,55 202,95 242,45"
-          stroke="#14b8a6"
-          strokeWidth="2.5"
+          points="130,268 155,258 180,262 205,252 230,256 255,248 280,244 305,250 330,238 355,242"
+          stroke="#0d7377"
+          strokeWidth="2"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeDasharray="300"
           strokeDashoffset="300"
         >
-          <animate attributeName="stroke-dashoffset" from="300" to="0" dur="1.2s" begin="0.5s" fill="freeze" />
+          <animate attributeName="stroke-dashoffset" from="300" to="0" dur="1.5s" begin="0.3s" fill="freeze"/>
         </polyline>
-        {/* Dots on trend line */}
-        {[
-          [82, 115], [122, 75], [162, 55], [202, 95], [242, 45]
-        ].map(([cx, cy], i) => (
-          <circle key={i} cx={cx} cy={cy} r="4" fill="#14b8a6" stroke="#fff" strokeWidth="2" opacity="0">
-            <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin={`${0.8 + i * 0.1}s`} fill="freeze" />
-          </circle>
-        ))}
+        <polyline
+          points="130,270 155,265 180,268 205,260 230,263 255,258 280,255 305,258 330,250 355,253"
+          stroke="#14b8a6"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.5"
+          strokeDasharray="300"
+          strokeDashoffset="300"
+        >
+          <animate attributeName="stroke-dashoffset" from="300" to="0" dur="1.5s" begin="0.5s" fill="freeze"/>
+        </polyline>
       </svg>
     </div>
   );
@@ -168,26 +212,50 @@ function HeroIllustration() {
 function DataVizIllustration() {
   return (
     <div className="lp-dataviz-illustration">
-      <svg viewBox="0 0 300 220" fill="none" className="lp-dataviz-svg">
-        {/* Pie chart */}
-        <circle cx="100" cy="110" r="70" fill="#e0f7f5" />
-        <path d="M100 40 A70 70 0 0 1 170 110 L100 110 Z" fill="#0d7377" />
-        <path d="M170 110 A70 70 0 0 1 100 180 L100 110 Z" fill="#14b8a6" />
-        <path d="M100 180 A70 70 0 0 1 30 110 L100 110 Z" fill="#5eead4" />
-        <path d="M30 110 A70 70 0 0 1 100 40 L100 110 Z" fill="#99f6e4" />
-        <circle cx="100" cy="110" r="30" fill="#ffffff" />
-        {/* Mini line chart */}
-        <rect x="190" y="30" width="100" height="70" rx="10" fill="#ffffff" stroke="#0d7377" strokeOpacity="0.15" />
-        <polyline points="200,80 215,60 230,70 245,45 260,55 275,40" stroke="#0d7377" strokeWidth="2" fill="none" strokeLinecap="round" />
-        <text x="200" y="50" fontSize="8" fill="#0d7377" fontWeight="600" fontFamily="Inter">Trends</text>
-        {/* Mini bar chart */}
-        <rect x="190" y="120" width="100" height="70" rx="10" fill="#ffffff" stroke="#0d7377" strokeOpacity="0.15" />
-        <rect x="200" y="165" width="12" height="15" rx="2" fill="#5eead4" />
-        <rect x="218" y="155" width="12" height="25" rx="2" fill="#14b8a6" />
-        <rect x="236" y="145" width="12" height="35" rx="2" fill="#0d7377" />
-        <rect x="254" y="150" width="12" height="30" rx="2" fill="#14b8a6" />
-        <rect x="272" y="140" width="12" height="40" rx="2" fill="#0d7377" />
-        <text x="200" y="140" fontSize="8" fill="#0d7377" fontWeight="600" fontFamily="Inter">Volume</text>
+      <svg viewBox="0 0 360 260" fill="none" className="lp-dataviz-svg" xmlns="http://www.w3.org/2000/svg">
+        {/* Main donut chart */}
+        <circle cx="120" cy="130" r="80" fill="#f0fdfa"/>
+        <circle cx="120" cy="130" r="72" fill="none" stroke="#e0f7f5" strokeWidth="24"/>
+        <circle cx="120" cy="130" r="72" fill="none" stroke="#0d7377" strokeWidth="24" 
+          strokeDasharray="140 313" strokeLinecap="round" transform="rotate(-90 120 130)">
+          <animate attributeName="stroke-dasharray" from="0 453" to="140 313" dur="1s" fill="freeze"/>
+        </circle>
+        <circle cx="120" cy="130" r="72" fill="none" stroke="#14b8a6" strokeWidth="24"
+          strokeDasharray="100 353" strokeDashoffset="-140" strokeLinecap="round" transform="rotate(-90 120 130)">
+          <animate attributeName="stroke-dasharray" from="0 453" to="100 353" dur="1s" begin="0.3s" fill="freeze"/>
+        </circle>
+        <circle cx="120" cy="130" r="72" fill="none" stroke="#5eead4" strokeWidth="24"
+          strokeDasharray="80 373" strokeDashoffset="-240" strokeLinecap="round" transform="rotate(-90 120 130)">
+          <animate attributeName="stroke-dasharray" from="0 453" to="80 373" dur="1s" begin="0.5s" fill="freeze"/>
+        </circle>
+        <circle cx="120" cy="130" r="50" fill="#fff"/>
+        <text x="105" y="126" fontSize="18" fontWeight="900" fill="#0d7377" fontFamily="Inter">94%</text>
+        <text x="100" y="142" fontSize="8" fill="#5a6a7a" fontFamily="Inter" fontWeight="500">Quality Score</text>
+
+        {/* Right side: mini stats cards */}
+        <rect x="225" y="30" width="120" height="55" rx="10" fill="#fff" stroke="#0d7377" strokeOpacity="0.08"/>
+        <rect x="237" y="42" width="8" height="8" rx="2" fill="#0d7377"/>
+        <rect x="251" y="42" width="50" height="4" rx="2" fill="#0d7377" fillOpacity="0.12"/>
+        <text x="237" y="72" fontSize="13" fontWeight="800" fill="#0d7377" fontFamily="Inter">+23.5%</text>
+        <text x="280" y="72" fontSize="8" fill="#5a6a7a" fontFamily="Inter">growth</text>
+
+        {/* Mini line chart card */}
+        <rect x="225" y="100" width="120" height="55" rx="10" fill="#fff" stroke="#0d7377" strokeOpacity="0.08"/>
+        <rect x="237" y="112" width="8" height="8" rx="2" fill="#14b8a6"/>
+        <rect x="251" y="112" width="50" height="4" rx="2" fill="#14b8a6" fillOpacity="0.15"/>
+        <polyline points="237,142 252,135 267,138 282,128 297,132 312,125 327,120" 
+          stroke="#14b8a6" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+
+        {/* Mini bar chart card */}
+        <rect x="225" y="170" width="120" height="55" rx="10" fill="#fff" stroke="#0d7377" strokeOpacity="0.08"/>
+        <rect x="237" y="182" width="8" height="8" rx="2" fill="#5eead4"/>
+        <rect x="251" y="182" width="50" height="4" rx="2" fill="#5eead4" fillOpacity="0.2"/>
+        <rect x="240" y="207" width="10" height="12" rx="2" fill="#5eead4"/>
+        <rect x="256" y="201" width="10" height="18" rx="2" fill="#14b8a6"/>
+        <rect x="272" y="195" width="10" height="24" rx="2" fill="#0d7377"/>
+        <rect x="288" y="199" width="10" height="20" rx="2" fill="#14b8a6"/>
+        <rect x="304" y="193" width="10" height="26" rx="2" fill="#0d7377"/>
+        <rect x="320" y="197" width="10" height="22" rx="2" fill="#5eead4"/>
       </svg>
     </div>
   );
@@ -238,13 +306,22 @@ export default function LandingPage() {
             </a>
           </nav>
 
-          <button
-            onClick={() => navigate('/dashboard')}
-            className="lp-nav__cta"
-          >
-            <span>Dashboard</span>
-            <ArrowRight size={15} />
-          </button>
+          <div className="lp-nav__auth">
+            <button
+              onClick={() => navigate('/signin')}
+              className="lp-nav__signin"
+            >
+              <LogIn size={15} />
+              <span>Sign In</span>
+            </button>
+            <button
+              onClick={() => navigate('/signup')}
+              className="lp-nav__cta"
+            >
+              <UserPlus size={15} />
+              <span>Sign Up</span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -274,7 +351,7 @@ export default function LandingPage() {
 
             <div className="lp-hero__actions">
               <button
-                onClick={() => navigate('/dashboard')}
+                onClick={() => navigate('/signup')}
                 className="lp-btn lp-btn--primary"
               >
                 <span>Get Started</span>
@@ -473,17 +550,17 @@ export default function LandingPage() {
           </p>
           <div className="lp-cta__actions">
             <button
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate('/signup')}
               className="lp-btn lp-btn--white"
             >
-              <span>Launch Dashboard</span>
+              <span>Get Started Free</span>
               <ArrowRight size={16} />
             </button>
             <button
-              onClick={() => navigate('/data')}
+              onClick={() => navigate('/signin')}
               className="lp-btn lp-btn--ghost"
             >
-              <span>Upload Dataset</span>
+              <span>Sign In</span>
             </button>
           </div>
         </div>
