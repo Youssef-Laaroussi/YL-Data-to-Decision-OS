@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import LandingPage from './pages/LandingPage';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import DataEngineering from './pages/DataEngineering';
 import DataQuality from './pages/DataQuality';
@@ -11,13 +13,15 @@ import Decisions from './pages/Decisions';
 import FeedbackLoop from './pages/FeedbackLoop';
 import PipelineAgent from './pages/PipelineAgent';
 
+const PUBLIC_PATHS = ['/', '/signin', '/signup'];
+
 function AppContent() {
   const location = useLocation();
-  const isLanding = location.pathname === '/';
+  const isPublic = PUBLIC_PATHS.includes(location.pathname);
 
-  if (isLanding) {
-    return <LandingPage />;
-  }
+  if (location.pathname === '/') return <LandingPage />;
+  if (location.pathname === '/signin') return <SignIn />;
+  if (location.pathname === '/signup') return <SignUp />;
 
   return (
     <div className="app-layout">
