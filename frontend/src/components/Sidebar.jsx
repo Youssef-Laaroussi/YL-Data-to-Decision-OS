@@ -46,10 +46,16 @@ export default function Sidebar() {
     <aside className="sidebar">
       <Link to="/" className="sidebar__logo">
         <div className="sidebar__logo-icon">
-          <Bot size={22} style={{ color: '#fff' }} />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
         </div>
         <div>
-          <div className="sidebar__logo-text">D2D OS</div>
+          <div className="sidebar__logo-text">
+            <span style={{ color: '#0d7377', fontWeight: 800 }}>YL</span> D2D OS
+          </div>
           <div className="sidebar__logo-badge">Open Source</div>
         </div>
       </Link>
@@ -58,7 +64,7 @@ export default function Sidebar() {
         <Link
           to="/"
           className="sidebar__link"
-          style={{ marginBottom: '6px', color: 'var(--accent-primary)', background: '#eff6ff' }}
+          style={{ marginBottom: '6px', color: 'var(--accent-primary)', background: '#f0fdfa' }}
         >
           <Home size={18} />
           <span>← Back to Website</span>
@@ -96,9 +102,9 @@ export default function Sidebar() {
           className="btn btn--sm"
           style={{
             width: '100%',
-            background: seeded ? '#eff6ff' : '#eff6ff',
+            background: seeded ? '#f0fdfa' : '#f0fdfa',
             color: 'var(--accent-primary)',
-            borderColor: '#bfdbfe',
+            borderColor: 'rgba(13, 115, 119, 0.15)',
             fontWeight: 600,
           }}
         >
@@ -119,7 +125,7 @@ export default function Sidebar() {
 
         <div className="card" style={{ padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '2px' }}>
-            Data-to-Decision OS
+            YL Data-to-Decision OS
           </div>
           <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
             v0.1.0 · MIT License
