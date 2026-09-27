@@ -30,7 +30,7 @@ export default function SignIn() {
           <img
             src="/logo.jpg"
             alt="YL Data-to-Decision OS"
-            style={{ width: '36px', height: '36px', borderRadius: '8px', objectFit: 'contain' }}
+            className="app-logo"
           />
           <span className="lp-nav__brand-name">
             <span className="lp-nav__brand-yl">YL</span> Data-to-Decision OS

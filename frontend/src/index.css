@@ -186,6 +186,18 @@ a:hover {
   text-decoration: none;
 }
 
+.app-logo,
+.sidebar__logo img,
+.lp-nav__brand img,
+.auth-logo img {
+  height: 48px;
+  width: auto;
+  max-width: 110px;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+}
+
 .sidebar__logo-icon {
   width: 40px;
   height: 40px;

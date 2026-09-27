@@ -48,7 +48,7 @@ export default function Sidebar() {
         <img
           src="/logo.jpg"
           alt="YL Data-to-Decision OS"
-          style={{ width: '36px', height: '36px', borderRadius: '8px', objectFit: 'contain' }}
+          className="app-logo"
         />
         <div>
           <div className="sidebar__logo-text">

@@ -237,7 +237,7 @@ export default function LandingPage() {
             <img
               src="/logo.jpg"
               alt="YL Data-to-Decision OS"
-              style={{ width: '34px', height: '34px', borderRadius: '8px', objectFit: 'contain' }}
+              className="app-logo"
             />
             <span className="lp-nav__brand-name">
               <span className="lp-nav__brand-yl">YL</span> Data-to-Decision OS
@@ -434,7 +434,7 @@ export default function LandingPage() {
               <img
                 src="/logo.jpg"
                 alt="YL Data-to-Decision OS"
-                style={{ width: '30px', height: '30px', borderRadius: '8px', objectFit: 'contain' }}
+                className="app-logo"
               />
               <span className="lp-nav__brand-name">
                 <span className="lp-nav__brand-yl">YL</span> Data-to-Decision OS
