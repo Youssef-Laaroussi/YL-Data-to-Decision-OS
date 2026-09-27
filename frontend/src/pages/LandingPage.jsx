@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Database, ShieldCheck, BarChart3, Brain, Target, RotateCcw, Bot,
-  ArrowRight, CheckCircle2, Sparkles, Github, Zap,
-  Play, ChevronRight, Layers, Code2,
+  ArrowRight, CheckCircle2, Github,
+  Play, ChevronRight, Layers,
   ArrowUpRight, Activity, UserPlus, LogIn
 } from 'lucide-react';
 
@@ -54,53 +54,7 @@ const MODULES = [
   }
 ];
 
-const STATS = [
-  { value: '6', label: 'Pipeline Modules', icon: Layers },
-  { value: '100%', label: 'Automated Profiling', icon: Activity },
-  { value: '<30s', label: 'Quality Gate Check', icon: Zap },
-  { value: 'MIT', label: 'Open Source License', icon: Code2 }
-];
 
-const TECH_STACK = [
-  { name: 'FastAPI', role: 'Backend API' },
-  { name: 'React 18', role: 'Frontend UI' },
-  { name: 'PostgreSQL', role: 'Production DB' },
-  { name: 'scikit-learn', role: 'ML Framework' },
-  { name: 'SQLAlchemy', role: 'ORM Layer' },
-  { name: 'Recharts', role: 'Visualization' }
-];
-
-/* ─── Animated Counter ───────────────────────────────────── */
-function AnimatedValue({ value }) {
-  const [display, setDisplay] = useState(value);
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!visible) return;
-    const num = parseInt(value);
-    if (isNaN(num)) { setDisplay(value); return; }
-    let current = 0;
-    const step = Math.ceil(num / 30);
-    const interval = setInterval(() => {
-      current += step;
-      if (current >= num) { setDisplay(String(num)); clearInterval(interval); }
-      else setDisplay(String(current));
-    }, 40);
-    return () => clearInterval(interval);
-  }, [visible, value]);
-
-  return <span ref={ref}>{display}</span>;
-}
 
 /* ─── Realistic SVG Illustrations ────────────────────────── */
 
@@ -294,7 +248,6 @@ export default function LandingPage() {
 
           <nav className="lp-nav__links">
             <a href="#modules" className="lp-nav__link">Modules</a>
-            <a href="#architecture" className="lp-nav__link">Architecture</a>
             <a
               href="https://github.com/Youssef-Laaroussi/YL-Data-to-Decision-OS"
               target="_blank"
@@ -334,10 +287,6 @@ export default function LandingPage() {
 
         <div className="lp-hero__grid">
           <div className="lp-hero__content">
-            <div className="lp-hero__badge">
-              <Sparkles size={13} />
-              <span>Open Source Data Platform</span>
-            </div>
 
             <h1 className="lp-hero__title">
               Actionable Decisions,{' '}
@@ -382,25 +331,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ─── Stats Section ──────────────────────────────────── */}
-      <section className="lp-stats">
-        <div className="lp-stats__grid">
-          {STATS.map((stat, i) => {
-            const Icon = stat.icon;
-            return (
-              <div key={i} className="lp-stat-card">
-                <div className="lp-stat-card__icon">
-                  <Icon size={20} />
-                </div>
-                <div className="lp-stat-card__value">
-                  <AnimatedValue value={stat.value} />
-                </div>
-                <div className="lp-stat-card__label">{stat.label}</div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
 
       {/* ─── Feature Showcase ───────────────────────────────── */}
       <section className="lp-showcase">
@@ -469,84 +399,16 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ─── Architecture ───────────────────────────────────── */}
-      <section id="architecture" className="lp-arch">
-        <div className="lp-blob lp-blob--5" />
-        <div className="lp-section-header">
-          <div className="lp-section-header__badge">
-            <Code2 size={13} />
-            <span>System Blueprint</span>
-          </div>
-          <h2 className="lp-section-header__title">
-            Clean & Modular Architecture
-          </h2>
-          <p className="lp-section-header__desc">
-            Every module is an independent service with its own domain logic, models, and schemas.
-          </p>
-        </div>
 
-        <div className="lp-arch__diagram">
-          <div className="lp-arch__layer">
-            <div className="lp-arch__layer-label">Presentation</div>
-            <div className="lp-arch__boxes">
-              <div className="lp-arch__box lp-arch__box--highlight">React 18 + Vite</div>
-              <div className="lp-arch__box">Recharts BI</div>
-              <div className="lp-arch__box">Agentic Console</div>
-            </div>
-          </div>
 
-          <div className="lp-arch__arrow">
-            <ArrowRight size={16} />
-            <span>REST API (FastAPI)</span>
-          </div>
-
-          <div className="lp-arch__layer">
-            <div className="lp-arch__layer-label">Domain Modules</div>
-            <div className="lp-arch__boxes lp-arch__boxes--grid">
-              <div className="lp-arch__box">Data Engineering</div>
-              <div className="lp-arch__box">Data Quality</div>
-              <div className="lp-arch__box">Analytics</div>
-              <div className="lp-arch__box">ML Studio</div>
-              <div className="lp-arch__box">Decision Engine</div>
-              <div className="lp-arch__box">Feedback Loop</div>
-            </div>
-          </div>
-
-          <div className="lp-arch__arrow">
-            <ArrowRight size={16} />
-            <span>SQLAlchemy ORM</span>
-          </div>
-
-          <div className="lp-arch__layer">
-            <div className="lp-arch__layer-label">Storage</div>
-            <div className="lp-arch__boxes">
-              <div className="lp-arch__box">PostgreSQL 15+</div>
-              <div className="lp-arch__box">SQLite (Dev)</div>
-              <div className="lp-arch__box">Artifacts (.joblib)</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Tech Stack ─────────────────────────────────────── */}
-      <section className="lp-tech">
-        <div className="lp-tech__label">Built With Industry-Standard Technologies</div>
-        <div className="lp-tech__grid">
-          {TECH_STACK.map((tech, i) => (
-            <div key={i} className="lp-tech__badge">
-              <span className="lp-tech__name">{tech.name}</span>
-              <span className="lp-tech__role">{tech.role}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ─── Emplacement réservé pour nouvelle section (Partenaires / Clients / Intégrations) ─── */}
 
       {/* ─── CTA Banner ─────────────────────────────────────── */}
       <section className="lp-cta">
         <div className="lp-cta__card">
           <h2 className="lp-cta__title">Ready to test the full workflow?</h2>
           <p className="lp-cta__desc">
-            Launch the platform right now. Zero setup with automatic SQLite fallback and demo data.
+            Launch the platform right now with ready-to-use demo datasets.
           </p>
           <div className="lp-cta__actions">
             <button
