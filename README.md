@@ -1,6 +1,8 @@
 <div align="center">
 
-# Data-to-Decision OS
+<img src="docs/logo.jpg" alt="YL Data-to-Decision OS Logo" width="220" />
+
+# YL Data-to-Decision OS
 
 **Transform raw data into actionable, measurable, and traceable decisions.**
 
