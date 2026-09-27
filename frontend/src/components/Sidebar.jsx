@@ -45,13 +45,11 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       <Link to="/" className="sidebar__logo">
-        <div className="sidebar__logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M2 17l10 5 10-5" />
-            <path d="M2 12l10 5 10-5" />
-          </svg>
-        </div>
+        <img
+          src="/logo.jpg"
+          alt="YL Data-to-Decision OS"
+          style={{ width: '36px', height: '36px', borderRadius: '8px', objectFit: 'contain' }}
+        />
         <div>
           <div className="sidebar__logo-text">
             <span style={{ color: '#0d7377', fontWeight: 800 }}>YL</span> D2D OS

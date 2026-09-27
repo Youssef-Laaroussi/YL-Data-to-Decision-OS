@@ -27,13 +27,11 @@ export default function SignIn() {
 
       <div className="auth-card">
         <Link to="/" className="auth-logo">
-          <div className="lp-nav__brand-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
-          </div>
+          <img
+            src="/logo.jpg"
+            alt="YL Data-to-Decision OS"
+            style={{ width: '36px', height: '36px', borderRadius: '8px', objectFit: 'contain' }}
+          />
           <span className="lp-nav__brand-name">
             <span className="lp-nav__brand-yl">YL</span> Data-to-Decision OS
           </span>

@@ -234,13 +234,11 @@ export default function LandingPage() {
       <header className={`lp-nav ${scrolled ? 'lp-nav--scrolled' : ''}`}>
         <div className="lp-nav__inner">
           <Link to="/" className="lp-nav__brand">
-            <div className="lp-nav__brand-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-              </svg>
-            </div>
+            <img
+              src="/logo.jpg"
+              alt="YL Data-to-Decision OS"
+              style={{ width: '34px', height: '34px', borderRadius: '8px', objectFit: 'contain' }}
+            />
             <span className="lp-nav__brand-name">
               <span className="lp-nav__brand-yl">YL</span> Data-to-Decision OS
             </span>
@@ -433,13 +431,11 @@ export default function LandingPage() {
         <div className="lp-footer__inner">
           <div className="lp-footer__brand">
             <Link to="/" className="lp-nav__brand" style={{ marginBottom: '12px' }}>
-              <div className="lp-nav__brand-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5" />
-                  <path d="M2 12l10 5 10-5" />
-                </svg>
-              </div>
+              <img
+                src="/logo.jpg"
+                alt="YL Data-to-Decision OS"
+                style={{ width: '30px', height: '30px', borderRadius: '8px', objectFit: 'contain' }}
+              />
               <span className="lp-nav__brand-name">
                 <span className="lp-nav__brand-yl">YL</span> Data-to-Decision OS
               </span>
