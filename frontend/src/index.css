@@ -1990,3 +1990,242 @@ label {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   AUTH DECORATIONS — Floating shapes, SVG patterns, effects
+   ═══════════════════════════════════════════════════════════ */
+
+.auth-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ─── Floating Circles ───────────────────────────────────── */
+.auth-deco__circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(13, 115, 119, 0.08);
+  animation: authFloat ease-in-out infinite;
+}
+
+.auth-deco__circle--1 {
+  width: 300px;
+  height: 300px;
+  top: -80px;
+  right: -60px;
+  border-color: rgba(13, 115, 119, 0.06);
+  background: radial-gradient(circle, rgba(13, 115, 119, 0.03) 0%, transparent 70%);
+  animation-duration: 18s;
+}
+
+.auth-deco__circle--2 {
+  width: 200px;
+  height: 200px;
+  bottom: -40px;
+  left: -50px;
+  border-color: rgba(20, 184, 166, 0.08);
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.03) 0%, transparent 70%);
+  animation-duration: 22s;
+  animation-direction: reverse;
+}
+
+.auth-deco__circle--3 {
+  width: 120px;
+  height: 120px;
+  top: 30%;
+  left: 8%;
+  border-color: rgba(94, 234, 212, 0.1);
+  animation-duration: 15s;
+  animation-delay: -3s;
+}
+
+.auth-deco__circle--4 {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  right: 15%;
+  border-color: rgba(13, 115, 119, 0.07);
+  background: rgba(13, 115, 119, 0.02);
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+.auth-deco__circle--5 {
+  width: 50px;
+  height: 50px;
+  bottom: 20%;
+  right: 10%;
+  border-color: rgba(20, 184, 166, 0.1);
+  background: rgba(20, 184, 166, 0.03);
+  animation-duration: 12s;
+  animation-delay: -5s;
+}
+
+@keyframes authFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(12px, -18px) rotate(3deg); }
+  50% { transform: translate(-8px, 14px) rotate(-2deg); }
+  75% { transform: translate(16px, 8px) rotate(1deg); }
+}
+
+/* ─── SVG Patterns ───────────────────────────────────────── */
+.auth-deco__pattern {
+  position: absolute;
+}
+
+.auth-deco__pattern--tr {
+  top: -80px;
+  right: -80px;
+  animation: authSpin 60s linear infinite;
+}
+
+.auth-deco__pattern--bl {
+  bottom: -60px;
+  left: -60px;
+  animation: authSpin 80s linear infinite reverse;
+}
+
+@keyframes authSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Dot Grid ───────────────────────────────────────────── */
+.auth-deco__dots {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  opacity: 0.6;
+}
+
+/* ─── Mini Chart ─────────────────────────────────────────── */
+.auth-deco__chart {
+  position: absolute;
+  bottom: 12%;
+  right: 6%;
+  opacity: 0.7;
+  animation: authFloat 16s ease-in-out infinite 2s;
+}
+
+/* ─── Auth Icon Badge ────────────────────────────────────── */
+.auth-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(13, 115, 119, 0.08), rgba(20, 184, 166, 0.06));
+  border: 1.5px solid rgba(13, 115, 119, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d7377;
+  margin-bottom: 20px;
+}
+
+.auth-icon-wrap--green {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(5, 150, 105, 0.06));
+  border-color: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+/* ─── Auth Divider ───────────────────────────────────────── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(13, 115, 119, 0.08);
+}
+
+.auth-divider span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #7a8a9a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Social Login Button ────────────────────────────────── */
+.auth-social-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border: 1.5px solid rgba(13, 115, 119, 0.1);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a2332;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.auth-social-btn:hover {
+  background: #f5fffe;
+  border-color: rgba(13, 115, 119, 0.2);
+  box-shadow: 0 4px 16px rgba(13, 115, 119, 0.06);
+  transform: translateY(-1px);
+}
+
+/* ─── Auth Card Entrance ─────────────────────────────────── */
+.auth-card {
+  animation: authCardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes authCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Responsive Decorations ─────────────────────────────── */
+@media (max-width: 768px) {
+  .auth-deco__pattern--tr {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    right: -50px;
+  }
+
+  .auth-deco__pattern--bl {
+    width: 160px;
+    height: 160px;
+    bottom: -40px;
+    left: -40px;
+  }
+
+  .auth-deco__dots {
+    display: none;
+  }
+
+  .auth-deco__chart {
+    display: none;
+  }
+
+  .auth-deco__circle--1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .auth-deco__circle--3,
+  .auth-deco__circle--4,
+  .auth-deco__circle--5 {
+    display: none;
+  }
+}
