@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, Database, ShieldCheck, BarChart3,
-  Brain, Target, RotateCcw, Bot, Home, Sparkles, Check
+  Brain, Target, RotateCcw, Bot, Home, Sparkles, Check, Menu, X
 } from 'lucide-react';
 import * as api from '../services/api';
 
@@ -23,6 +23,13 @@ const navItems = [
 export default function Sidebar() {
   const [seeding, setSeeding] = useState(false);
   const [seeded, setSeeded] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   async function handleSeedDemo() {
     setSeeding(true);
@@ -43,20 +50,55 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="sidebar">
-      <Link to="/" className="sidebar__logo">
-        <img
-          src="/logo.jpg"
-          alt="YL Data-to-Decision OS"
-          className="app-logo"
-        />
-        <div>
-          <div className="sidebar__logo-text">
-            <span style={{ color: '#0d7377', fontWeight: 800 }}>YL</span> D2D OS
-          </div>
-          <div className="sidebar__logo-badge">Open Source</div>
+    <>
+      {/* ─── Mobile Header (Visible only on screens < 768px) ─── */}
+      <div className="mobile-header">
+        <Link to="/" className="mobile-header__brand">
+          <img src="/logo.jpg" alt="YL Data-to-Decision OS" className="app-logo" style={{ height: '36px', width: 'auto' }} />
+          <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '0.95rem' }}>
+            <span style={{ color: '#0d7377' }}>YL</span> D2D OS
+          </span>
+        </Link>
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="mobile-header__toggle"
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* ─── Backdrop overlay on mobile ─── */}
+      <div
+        className={`sidebar-backdrop ${mobileOpen ? 'sidebar-backdrop--active' : ''}`}
+        onClick={() => setMobileOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* ─── Sidebar Drawer ─── */}
+      <aside className={`sidebar ${mobileOpen ? 'sidebar--open' : ''}`}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingRight: '12px' }}>
+          <Link to="/" className="sidebar__logo" onClick={() => setMobileOpen(false)}>
+            <img
+              src="/logo.jpg"
+              alt="YL Data-to-Decision OS"
+              className="app-logo"
+            />
+            <div>
+              <div className="sidebar__logo-text">
+                <span style={{ color: '#0d7377', fontWeight: 800 }}>YL</span> D2D OS
+              </div>
+              <div className="sidebar__logo-badge">Open Source</div>
+            </div>
+          </Link>
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="sidebar__close-btn"
+            aria-label="Close sidebar"
+          >
+            <X size={20} />
+          </button>
         </div>
-      </Link>
 
       <nav className="sidebar__nav">
         <Link
@@ -131,5 +173,6 @@ export default function Sidebar() {
         </div>
       </div>
     </aside>
+    </>
   );
 }

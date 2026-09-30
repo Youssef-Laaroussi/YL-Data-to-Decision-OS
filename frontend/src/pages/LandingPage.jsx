@@ -4,7 +4,7 @@ import {
   Database, ShieldCheck, BarChart3, Brain, Target, RotateCcw, Bot,
   ArrowRight, CheckCircle2, Github,
   Play, ChevronRight, Layers,
-  ArrowUpRight, Activity, UserPlus, LogIn
+  ArrowUpRight, Activity, UserPlus, LogIn, Menu, X
 } from 'lucide-react';
 
 /* ─── Data ───────────────────────────────────────────────── */
@@ -220,6 +220,7 @@ function DataVizIllustration() {
 export default function LandingPage() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -273,7 +274,56 @@ export default function LandingPage() {
               <span>Sign Up</span>
             </button>
           </div>
+
+          <button
+            className="lp-nav__mobile-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+
+        {/* ─── Mobile Dropdown Menu ─────────────────────────── */}
+        {mobileMenuOpen && (
+          <div className="lp-nav__mobile-dropdown">
+            <a
+              href="#modules"
+              className="lp-nav__mobile-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Modules</span>
+            </a>
+            <a
+              href="https://github.com/Youssef-Laaroussi/YL-Data-to-Decision-OS"
+              target="_blank"
+              rel="noreferrer"
+              className="lp-nav__mobile-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Github size={16} />
+              <span>GitHub Repository</span>
+            </a>
+            <div className="lp-nav__mobile-actions">
+              <button
+                onClick={() => { setMobileMenuOpen(false); navigate('/signin'); }}
+                className="lp-nav__signin"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                <LogIn size={15} />
+                <span>Sign In</span>
+              </button>
+              <button
+                onClick={() => { setMobileMenuOpen(false); navigate('/signup'); }}
+                className="lp-nav__cta"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                <UserPlus size={15} />
+                <span>Sign Up</span>
+              </button>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* ─── Hero Section ───────────────────────────────────── */}

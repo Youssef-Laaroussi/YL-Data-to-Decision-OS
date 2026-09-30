@@ -112,7 +112,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <div className="page-header__actions">
           <button
             onClick={handleQuickSeed}
             disabled={seeding}
@@ -239,7 +239,7 @@ export default function Dashboard() {
 
           {overview?.latest_model_metrics ? (
             <div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
+              <div className="metrics-mini-grid">
                 {Object.entries(overview.latest_model_metrics)
                   .filter(([key]) => ['r2_score', 'rmse', 'mae', 'accuracy'].includes(key))
                   .map(([key, value]) => (
@@ -310,7 +310,7 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="feedback-mini-grid">
                 <div style={{ padding: '14px', background: '#ecfdf5', borderRadius: 'var(--radius-md)', border: '1px solid #a7f3d0', textAlign: 'center' }}>
                   <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#047857' }}>
                     {overview.feedback_stats.successful}
