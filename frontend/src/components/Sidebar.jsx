@@ -121,7 +121,7 @@ export default function Sidebar() {
           )}
         </button>
 
-        <div className="card" style={{ padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
+        <div className="card card--no-hover" style={{ padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '2px' }}>
             YL Data-to-Decision OS
           </div>

@@ -199,7 +199,7 @@ export default function Dashboard() {
               style={{ cursor: 'pointer' }}
             >
               <div>
-                <div className="stat-card__icon stat-card__icon--blue">
+                <div className={`stat-card__icon stat-card__icon--${stat.color}`}>
                   <Icon size={22} />
                 </div>
                 <div className="stat-card__value">{stat.value}</div>
