@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Cpu } from 'lucide-react';
 import * as api from '../services/api';
 
 const ALGORITHMS = [
@@ -129,7 +130,14 @@ export default function MLEngineering() {
           disabled={!selectedDataset || !targetColumn || training}
           style={{ marginTop: 'var(--space-md)', width: '100%' }}
         >
-          {training ? <><div className="spinner" style={{ width: 18, height: 18 }}></div> Training...</> : '🚀 Train Model'}
+          {training ? (
+            <><div className="spinner" style={{ width: 18, height: 18 }}></div> Training...</>
+          ) : (
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+              <Cpu size={18} />
+              <span>Train Model</span>
+            </span>
+          )}
         </button>
       </div>
 
@@ -186,7 +194,20 @@ export default function MLEngineering() {
       )}
 
       {/* All Models */}
-      {models.length > 0 && (
+      {models.length === 0 ? (
+        <div className="card">
+          <div className="card__header">
+            <div className="card__title">Trained Models</div>
+          </div>
+          <div className="empty-state" style={{ padding: 'var(--space-xl)' }}>
+            <div className="empty-state__icon-badge empty-state__icon-badge--purple">
+              <Cpu size={28} strokeWidth={1.8} />
+            </div>
+            <p className="empty-state__title">No models trained yet</p>
+            <p className="empty-state__text">Select a dataset and target column above to train your first ML model</p>
+          </div>
+        </div>
+      ) : (
         <div className="card">
           <div className="card__header">
             <div className="card__title">Trained Models ({models.length})</div>

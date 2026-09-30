@@ -3,6 +3,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, PieChart, Pie, Cell
 } from 'recharts';
+import { BarChart3 } from 'lucide-react';
 import * as api from '../services/api';
 
 const COLORS = ['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#f97316'];
@@ -84,13 +85,18 @@ export default function Analytics() {
         </div>
         {datasets.length === 0 ? (
           <div className="empty-state" style={{ padding: 'var(--space-xl)' }}>
+            <div className="empty-state__icon-badge empty-state__icon-badge--blue">
+              <BarChart3 size={28} strokeWidth={1.8} />
+            </div>
+            <p className="empty-state__title">No datasets available</p>
             <p className="empty-state__text">Upload a dataset first in Data Engineering</p>
           </div>
         ) : (
           <div style={{ display: 'flex', gap: 'var(--space-md)', flexWrap: 'wrap' }}>
             {datasets.map(d => (
-              <button key={d.id} className="btn btn--primary" onClick={() => analyze(d.id)} disabled={analyzing}>
-                {analyzing ? <div className="spinner" style={{ width: 16, height: 16 }}></div> : '📊'} {d.name}
+              <button key={d.id} className="btn btn--primary" onClick={() => analyze(d.id)} disabled={analyzing} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                {analyzing ? <div className="spinner" style={{ width: 16, height: 16 }}></div> : <BarChart3 size={15} />}
+                <span>{d.name}</span>
               </button>
             ))}
           </div>

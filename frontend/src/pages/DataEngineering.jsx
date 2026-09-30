@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Upload, FileText, Play, Eye, RefreshCw } from 'lucide-react';
+import { Upload, FileText, Play, Eye, RefreshCw, UploadCloud, Database } from 'lucide-react';
 import * as api from '../services/api';
 
 export default function DataEngineering() {
@@ -104,7 +104,9 @@ export default function DataEngineering() {
           </>
         ) : (
           <>
-            <div className="upload-zone__icon">📂</div>
+            <div className="empty-state__icon-badge empty-state__icon-badge--blue" style={{ margin: '0 auto var(--space-md)', width: 56, height: 56, borderRadius: 14 }}>
+              <UploadCloud size={28} strokeWidth={1.8} />
+            </div>
             <p className="upload-zone__text">
               <strong>Drop your file here</strong> or click to browse
             </p>
@@ -126,7 +128,9 @@ export default function DataEngineering() {
 
         {datasets.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-state__icon">📊</div>
+            <div className="empty-state__icon-badge empty-state__icon-badge--blue">
+              <Database size={28} strokeWidth={1.8} />
+            </div>
             <p className="empty-state__title">No datasets yet</p>
             <p className="empty-state__text">Upload a CSV or JSON file to get started</p>
           </div>

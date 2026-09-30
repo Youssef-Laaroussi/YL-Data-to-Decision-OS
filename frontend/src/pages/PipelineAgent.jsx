@@ -1,14 +1,17 @@
 import { useState, useEffect, Fragment } from 'react';
-import { Bot, Play, CheckCircle, XCircle, Clock, Loader } from 'lucide-react';
+import {
+  Bot, Play, CheckCircle, XCircle, Clock, Loader, Rocket,
+  FolderOpen, Sparkles, Wrench, ShieldCheck, BarChart3, Brain, Target, Database
+} from 'lucide-react';
 import * as api from '../services/api';
 
 const PIPELINE_STEPS = [
-  { key: 'data_engineering', label: 'Data Engineering', icon: '🔧', description: 'Clean, transform, optimize' },
-  { key: 'data_quality', label: 'Data Quality', icon: '✅', description: 'Validate, detect anomalies' },
-  { key: 'analytics', label: 'Analytics', icon: '📊', description: 'Statistical analysis' },
-  { key: 'ml_training', label: 'ML Training', icon: '🧠', description: 'Train predictive model' },
-  { key: 'prediction', label: 'Prediction', icon: '🎯', description: 'Generate predictions' },
-  { key: 'decision_engine', label: 'Decision', icon: '💡', description: 'Actionable recommendation' },
+  { key: 'data_engineering', label: 'Data Engineering', icon: Wrench, color: '#0d7377', bg: '#f0fdfa', description: 'Clean, transform, optimize' },
+  { key: 'data_quality', label: 'Data Quality', icon: ShieldCheck, color: '#059669', bg: '#ecfdf5', description: 'Validate, detect anomalies' },
+  { key: 'analytics', label: 'Analytics', icon: BarChart3, color: '#0284c7', bg: '#f0f9ff', description: 'Statistical analysis' },
+  { key: 'ml_training', label: 'ML Training', icon: Brain, color: '#6366f1', bg: '#eef2ff', description: 'Train predictive model' },
+  { key: 'prediction', label: 'Prediction', icon: Target, color: '#8b5cf6', bg: '#faf5ff', description: 'Generate predictions' },
+  { key: 'decision_engine', label: 'Decision', icon: Sparkles, color: '#d97706', bg: '#fffbeb', description: 'Actionable recommendation' },
 ];
 
 export default function PipelineAgent() {
@@ -57,7 +60,7 @@ export default function PipelineAgent() {
       setCurrentRun(result);
       setToast({
         message: result.status === 'completed'
-          ? '🎉 Full pipeline completed successfully!'
+          ? 'Full pipeline completed successfully!'
           : `Pipeline ${result.status}`,
         type: result.status === 'completed' ? 'success' : 'error'
       });
@@ -94,7 +97,7 @@ export default function PipelineAgent() {
     <div className="animate-in">
       <div className="page-header">
         <h1 className="page-header__title">
-          <Bot size={28} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }} />
+          <Bot size={28} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px', color: '#8b5cf6' }} />
           Pipeline Agent
         </h1>
         <p className="page-header__subtitle">
@@ -106,14 +109,19 @@ export default function PipelineAgent() {
       <div className="card" style={{ marginBottom: 'var(--space-2xl)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
         <div className="card__header">
           <div>
-            <div className="card__title">🚀 Launch Full Pipeline</div>
+            <div className="card__title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Rocket size={18} style={{ color: '#8b5cf6' }} />
+              <span>Launch Full Pipeline</span>
+            </div>
             <div className="card__subtitle">The agent will run all steps autonomously</div>
           </div>
         </div>
 
         {datasets.length === 0 ? (
           <div className="empty-state" style={{ padding: 'var(--space-xl)' }}>
-            <div className="empty-state__icon">📂</div>
+            <div className="empty-state__icon-badge empty-state__icon-badge--blue">
+              <FolderOpen size={30} strokeWidth={1.8} />
+            </div>
             <p className="empty-state__title">No data uploaded yet</p>
             <p className="empty-state__text">Go to Data Engineering to upload a CSV or JSON dataset first</p>
           </div>
@@ -153,7 +161,10 @@ export default function PipelineAgent() {
               {running ? (
                 <><div className="spinner" style={{ width: 20, height: 20, borderTopColor: 'white' }}></div> Agent is running the pipeline...</>
               ) : (
-                '🤖 Run Full Pipeline (Data → Decision)'
+                <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                  <Bot size={18} />
+                  <span>Run Full Pipeline (Data → Decision)</span>
+                </span>
               )}
             </button>
           </>
@@ -179,10 +190,27 @@ export default function PipelineAgent() {
           <div className="pipeline-flow" style={{ marginBottom: 'var(--space-xl)' }}>
             {PIPELINE_STEPS.map((step, i) => {
               const status = getStepStatus(step.key);
+              const StepIcon = step.icon;
               return (
                 <Fragment key={step.key}>
                   <div className={`pipeline-step pipeline-step--${status}`}>
-                    <span className="pipeline-step__icon">{step.icon}</span>
+                    <span
+                      className="pipeline-step__icon"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 28,
+                        height: 28,
+                        borderRadius: '50%',
+                        backgroundColor: step.bg,
+                        color: step.color,
+                        boxShadow: `0 2px 6px ${step.color}20`,
+                        flexShrink: 0
+                      }}
+                    >
+                      <StepIcon size={14} strokeWidth={2.2} />
+                    </span>
                     <span className="pipeline-step__label">{step.label}</span>
                     {status === 'completed' && <CheckCircle size={14} style={{ color: 'var(--accent-green)' }} />}
                     {status === 'running' && <Loader size={14} style={{ color: 'var(--accent-blue)', animation: 'spin 1s linear infinite' }} />}
@@ -224,8 +252,9 @@ export default function PipelineAgent() {
               background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05))',
               borderRadius: 'var(--radius-lg)', border: '1px solid rgba(16, 185, 129, 0.2)',
             }}>
-              <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent-green)', marginBottom: '8px' }}>
-                ✨ Decision Generated
+              <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent-green)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Sparkles size={14} />
+                <span>Decision Generated</span>
               </div>
               {currentRun.log?.filter(l => l.decision_title).map((l, i) => (
                 <div key={i} style={{ fontSize: '1.3rem', fontWeight: 700 }}>{l.decision_title}</div>

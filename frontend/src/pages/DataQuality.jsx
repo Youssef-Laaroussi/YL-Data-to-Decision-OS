@@ -66,6 +66,10 @@ export default function DataQuality() {
         </div>
         {datasets.length === 0 ? (
           <div className="empty-state" style={{ padding: 'var(--space-xl)' }}>
+            <div className="empty-state__icon-badge empty-state__icon-badge--teal">
+              <ShieldCheck size={28} strokeWidth={1.8} />
+            </div>
+            <p className="empty-state__title">No datasets available</p>
             <p className="empty-state__text">Upload a dataset first in Data Engineering</p>
           </div>
         ) : (
@@ -154,11 +158,15 @@ export default function DataQuality() {
               </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Anomalies</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 700, color: selectedReport.schema_valid ? 'var(--accent-green)' : 'var(--accent-red)' }}>
-                {selectedReport.schema_valid ? '✓' : '✗'}
+            <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {selectedReport.schema_valid ? (
+                  <CheckCircle size={26} style={{ color: 'var(--accent-green)' }} />
+                ) : (
+                  <XCircle size={26} style={{ color: 'var(--accent-red)' }} />
+                )}
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Schema Valid</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>Schema Valid</div>
             </div>
           </div>
         </div>

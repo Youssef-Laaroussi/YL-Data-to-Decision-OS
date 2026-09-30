@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { RotateCcw, CheckCircle2, XCircle, PlusCircle } from 'lucide-react';
 import * as api from '../services/api';
 
 const COLORS = ['#10b981', '#ef4444'];
@@ -101,6 +102,9 @@ export default function FeedbackLoop() {
             </div>
           ) : (
             <div className="empty-state" style={{ padding: 'var(--space-xl)' }}>
+              <div className="empty-state__icon-badge empty-state__icon-badge--teal" style={{ width: 48, height: 48, borderRadius: 12 }}>
+                <RotateCcw size={22} strokeWidth={1.8} />
+              </div>
               <p className="empty-state__text">Record feedback to see distribution</p>
             </div>
           )}
@@ -113,6 +117,9 @@ export default function FeedbackLoop() {
           </div>
           {decisions.length === 0 ? (
             <div className="empty-state" style={{ padding: 'var(--space-xl)' }}>
+              <div className="empty-state__icon-badge empty-state__icon-badge--amber" style={{ width: 48, height: 48, borderRadius: 12 }}>
+                <RotateCcw size={22} strokeWidth={1.8} />
+              </div>
               <p className="empty-state__text">Execute a decision first to provide feedback</p>
             </div>
           ) : (
@@ -132,8 +139,9 @@ export default function FeedbackLoop() {
                 <label className="form-label">Notes (optional)</label>
                 <input className="form-input" placeholder="What happened?" value={formNotes} onChange={(e) => setFormNotes(e.target.value)} />
               </div>
-              <button className="btn btn--primary" onClick={submitFeedback} disabled={!formDecision || !formOutcome}>
-                📏 Record Feedback
+              <button className="btn btn--primary" onClick={submitFeedback} disabled={!formDecision || !formOutcome} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <PlusCircle size={16} />
+                <span>Record Feedback</span>
               </button>
             </>
           )}
@@ -158,7 +166,19 @@ export default function FeedbackLoop() {
                     <td>{f.expected_outcome?.toFixed(1)}</td>
                     <td style={{ fontWeight: 600 }}>{f.actual_outcome?.toFixed(1)}</td>
                     <td><span className={`badge badge--${Math.abs(f.variance_pct) < 20 ? 'success' : 'warning'}`}>{f.variance_pct?.toFixed(1)}%</span></td>
-                    <td>{f.success ? <span className="badge badge--success">✓ Success</span> : <span className="badge badge--danger">✗ Failed</span>}</td>
+                    <td>
+                      {f.success ? (
+                        <span className="badge badge--success" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <CheckCircle2 size={13} />
+                          <span>Success</span>
+                        </span>
+                      ) : (
+                        <span className="badge badge--danger" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <XCircle size={13} />
+                          <span>Failed</span>
+                        </span>
+                      )}
+                    </td>
                     <td style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{f.measured_at ? new Date(f.measured_at).toLocaleString() : '—'}</td>
                   </tr>
                 ))}

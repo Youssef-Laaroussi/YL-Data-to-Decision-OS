@@ -56,7 +56,9 @@ export default function Decisions() {
       {decisions.length === 0 ? (
         <div className="card">
           <div className="empty-state">
-            <div className="empty-state__icon">💡</div>
+            <div className="empty-state__icon-badge empty-state__icon-badge--amber">
+              <Target size={30} strokeWidth={1.8} />
+            </div>
             <p className="empty-state__title">No decisions yet</p>
             <p className="empty-state__text">
               Run the full pipeline from the Pipeline Agent page to generate decisions from your data
@@ -92,13 +94,15 @@ export default function Decisions() {
               </div>
               <div className="decision-card__actions">
                 {d.status === 'proposed' && (
-                  <button className="btn btn--primary btn--sm" onClick={() => approve(d.id)}>
-                    ✓ Approve
+                  <button className="btn btn--primary btn--sm" onClick={() => approve(d.id)} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <CheckCircle size={14} />
+                    <span>Approve</span>
                   </button>
                 )}
                 {d.status === 'approved' && (
-                  <button className="btn btn--success btn--sm" onClick={() => execute(d.id)}>
-                    ▶ Execute
+                  <button className="btn btn--success btn--sm" onClick={() => execute(d.id)} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <Play size={14} />
+                    <span>Execute</span>
                   </button>
                 )}
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: 'auto' }}>
